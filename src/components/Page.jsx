@@ -4,7 +4,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function Page() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [news, setNews] = useState(1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -17,7 +16,6 @@ export default function Page() {
         const newData = await response.json();
 
         setData((prevData) => [...prevData, ...newData.nodes]);
-
         if (page < 3) {
           setPage(page + 1);
         }
